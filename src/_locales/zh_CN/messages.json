@@ -1,13 +1,13 @@
 {
   "appName": {
-    "message": "chrome extension downloader",
+    "message": "chrome插件crx下载",
     "description": "chrome extension downloader"
   },
   "appDescription": {
-    "message": "chrome extension downloader"
+    "message": "下载Chrome应用商店中的crx文件，便于传播，直接安装。"
   },
   "btnTooltip": {
-    "message": "chrome extension downloader"
+    "message": "chrome插件crx下载"
   },
   "downloadFile": {
     "message": "下载crx文件"

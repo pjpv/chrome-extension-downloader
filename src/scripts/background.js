@@ -1,4 +1,5 @@
 import ext from "./utils/ext";
+import { t } from "./utils/lang";
 
 ext.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -11,17 +12,25 @@ ext.runtime.onMessage.addListener(
   }
 );
 
+function down(url) {
+  chrome.downloads.download({url: url},
+    function(id) {
+      console.log(id);
+    });
+}
+
 function downloader(params) {
   const url = params.pageUrl
   const reg = url.match(/https:\/\/chrome\.google\.com\/webstore\/detail\/[^\/]+\/([^\?]+)\?/)
   if (reg && reg.length === 2) {
     const id = reg[1]
-    window.open(`https://chrome.google.com/webstore/download/${id}/package/main/crx/3`)
+    // window.open(`https://chrome.google.com/webstore/download/${id}/package/main/crx/3`)
+    down(`https://chrome.google.com/webstore/download/${id}/package/main/crx/3`)
   }
 }
 
 chrome.contextMenus.create({
-  title: "下載crx文件",
+  title: t("downloadFile"),
   onclick: downloader,
   "documentUrlPatterns": ["*://chrome.google.com/webstore/detail/*"]
 });
