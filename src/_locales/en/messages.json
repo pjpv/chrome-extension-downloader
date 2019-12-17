@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "chrome extension downloader",
+    "description": "The name of the extension."
+  },
+  "appDescription": {
+    "message": "chrome extension downloader",
+    "description": "The description of the extension."
+  },
+  "btnTooltip": {
+    "message": "chrome extension downloader",
+    "description": "Tooltip for the button."
+  }
+}
