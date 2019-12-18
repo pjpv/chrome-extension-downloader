@@ -10,6 +10,7 @@ import gulpif from "gulp-if";
 const $ = require('gulp-load-plugins')();
 
 var production = process.env.NODE_ENV === "production";
+console.log(process.env, process.env.NODE_ENV, production);
 var target = process.env.TARGET || "chrome";
 var environment = process.env.NODE_ENV || "development";
 
@@ -150,9 +151,15 @@ function buildJS(target) {
     .pipe(gulpif(!production, $.sourcemaps.init({ loadMaps: true }) ))
     .pipe(gulpif(!production, $.sourcemaps.write('./') ))
     .pipe(gulpif(production, $.uglify({
-      "mangle": true,
+      "mangle": false,
+      "Compress": {
+        "drop_console": true,
+        "drop_debugger": true,
+      },
       "output": {
-        "ascii_only": true
+        "ascii_only": true,
+        "comments": false,
+        "beautify": false,
       }
     })))
     .pipe(gulp.dest(`build/${target}/scripts`));
