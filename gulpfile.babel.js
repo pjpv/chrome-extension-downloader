@@ -159,7 +159,7 @@ function buildJS(target) {
       "output": {
         "ascii_only": true,
         "comments": false,
-        "beautify": false,
+        "beautify": true,
       }
     })))
     .pipe(gulp.dest(`build/${target}/scripts`));
