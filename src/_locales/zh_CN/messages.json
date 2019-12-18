@@ -10,6 +10,6 @@
     "message": "chrome插件crx下载"
   },
   "downloadFile": {
-    "message": "下载crx文件"
+    "message": "下载 .crx 文件"
   }
 }
